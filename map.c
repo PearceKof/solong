@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:35:20 by blaurent          #+#    #+#             */
-/*   Updated: 2022/06/27 16:20:55 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:55:02 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_badmap(char **map, t_pst pos, t_data *d)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (pos.x != d->size.x)
@@ -40,6 +40,8 @@ void	ft_elem(char c, t_data *d)
 		d->e++;
 	else if (c == 'P')
 		d->p++;
+	else if (c != '\0' && c != '0' && c != '1')
+		d->e = 10;
 }
 
 int	ft_checkmap(char **map, t_data *d)
@@ -73,19 +75,16 @@ char	**ft_getmap(char *fmap, t_data *d)
 {
 	char	**tmap;
 	char	*map;
-	char	*tmp;
 	int		fd;
 
-	map = ft_calloc(1, sizeof(char));
 	fd = open(fmap, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	tmp = gnl(fd);
-	while (tmp)
+	map = ft_calloc(1, sizeof(char));
+	if (!map || ft_read(fd, &map))
 	{
-		map = ft_joinfile(map, tmp);
-		free(tmp);
-		tmp = gnl(fd);
+		close(fd);
+		return (NULL);
 	}
 	close(fd);
 	tmap = ft_split(map, '\n');
@@ -93,7 +92,33 @@ char	**ft_getmap(char *fmap, t_data *d)
 	if (ft_checkmap(tmap, d))
 	{
 		free(tmap);
+		ft_printf("ERROR\nInvalid map");
 		return (NULL);
 	}
 	return (tmap);
+}
+
+int	ft_read(int fd, char **file)
+{
+	char	*tmp;
+	int		end;
+
+	tmp = malloc(30000 * sizeof(char));
+	if (!tmp)
+		return (-1);
+	end = read(fd, tmp, 30000);
+	if (end == -1)
+	{
+		free (tmp);
+		return (-1);
+	}
+	tmp[end] = '\0';
+	*file = ft_joinfile(*file, tmp);
+	if (!*file)
+	{
+		free(tmp);
+		return (-1);
+	}
+	free(tmp);
+	return (0);
 }
