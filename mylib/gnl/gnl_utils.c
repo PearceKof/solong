@@ -18,10 +18,10 @@ char	*ft_readfile(char *file, int fd)
 	int		end;
 
 	end = 1;
-	tmp = ft_calloc(BUFFER_SIZE, sizeof(char));
-	while (!ft_strchr(tmp, '\n') && end != 0)
+	tmp = ft_calloc(50, sizeof(char));
+	while (end != 0)
 	{
-		end = read(fd, tmp, BUFFER_SIZE);
+		end = read(fd, tmp, 50);
 		if (end == -1)
 		{
 			free(tmp);

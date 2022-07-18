@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:28:29 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/14 17:57:03 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:49:40 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_initd(t_data *d)
 
 int	ft_keypress(int k, t_data *d)
 {
-	static int count = 1;
+	static int	count = 1;
 
 	if (ft_movepos(k, d))
 		return (0);
@@ -51,7 +51,6 @@ int	ft_keypress(int k, t_data *d)
 int	main(int ag, char **av)
 {
 	t_data	d;
-	int		i;
 
 	if (ag != 2)
 	{
@@ -62,14 +61,13 @@ int	main(int ag, char **av)
 	d.map = ft_getmap(av[1], &d);
 	if (!d.map)
 	{
-		ft_printf("ERROR\n");
+		ft_putstr_fd("ERROR\nInvalid map\n", STDERR_FILENO);
 		return (EXIT_FAILURE);
 	}
 	d.size.x *= 32;
 	d.size.y *= 32;
 	d.mlx = mlx_init();
 	d.win = mlx_new_window(d.mlx, d.size.x, d.size.y, "so_long");
-	i = 7;
 	d.img = mlx_new_image(d.mlx, d.size.x, d.size.y);
 	ft_putstr_fd("test\n", STDERR_FILENO);
 	ft_initmap(&d);

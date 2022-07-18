@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:29:13 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/14 17:09:18 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:49:01 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ void	ft_initmap(t_data *d);
 char	**ft_getmap(char *fmap, t_data *d);
 void	ft_elem(char c, t_data *d);
 int		ft_checkmap(char **map, t_data *d);
-int		ft_read(int fd, char **file);
 
-int	ft_movepos(int k, t_data *d);
+int		ft_movepos(int k, t_data *d);
 void	mvleft(t_data *d);
 void	mvup(t_data *d);
 void	mvdown(t_data *d);

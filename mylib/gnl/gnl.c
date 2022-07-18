@@ -15,18 +15,13 @@
 char	*gnl(int fd)
 {
 	static char	*file;
-	char		*line;
 
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE < 1 || BUFFER_SIZE > INT_MAX)
+	if (fd < 0 || fd >= OPEN_MAX)
 		return (NULL);
 	file = ft_readfile(file, fd);
 	if (!file)
 		return (NULL);
-	line = ft_cpyline(file);
-	file = ft_nxtline(file);
-	if (!line)
-		return (NULL);
-	return (line);
+	return (file);
 }
 
 char	*cooler_gnl(int fd)

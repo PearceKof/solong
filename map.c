@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:35:20 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/05 15:55:02 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:41:35 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ char	**ft_getmap(char *fmap, t_data *d)
 	fd = open(fmap, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	map = ft_calloc(1, sizeof(char));
-	if (!map || ft_read(fd, &map))
+	map = gnl(fd);
+	if (!map)
 	{
 		close(fd);
 		return (NULL);
@@ -92,33 +92,7 @@ char	**ft_getmap(char *fmap, t_data *d)
 	if (ft_checkmap(tmap, d))
 	{
 		free(tmap);
-		ft_printf("ERROR\nInvalid map");
 		return (NULL);
 	}
 	return (tmap);
-}
-
-int	ft_read(int fd, char **file)
-{
-	char	*tmp;
-	int		end;
-
-	tmp = malloc(30000 * sizeof(char));
-	if (!tmp)
-		return (-1);
-	end = read(fd, tmp, 30000);
-	if (end == -1)
-	{
-		free (tmp);
-		return (-1);
-	}
-	tmp[end] = '\0';
-	*file = ft_joinfile(*file, tmp);
-	if (!*file)
-	{
-		free(tmp);
-		return (-1);
-	}
-	free(tmp);
-	return (0);
 }
