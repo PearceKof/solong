@@ -6,7 +6,7 @@
 #    By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 13:39:59 by blaurent          #+#    #+#              #
-#    Updated: 2022/07/14 16:21:21 by blaurent         ###   ########.fr        #
+#    Updated: 2022/07/18 16:27:03 by blaurent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,6 @@ FILES		= map.c \
 				mylib/libft/ft_bzero.c \
 				mylib/libft/ft_calloc.c \
 				mylib/libft/ft_freetab.c \
-				mylib/libft/ft_isalnum.c \
-				mylib/libft/ft_isalpha.c \
-				mylib/libft/ft_isascii.c \
-				mylib/libft/ft_isdigit.c \
-				mylib/libft/ft_isprint.c \
 				mylib/libft/ft_itoa.c \
 				mylib/libft/ft_memchr.c \
 				mylib/libft/ft_memcmp.c \
@@ -64,10 +59,6 @@ FILES		= map.c \
 				mylib/libft/ft_strnstr.c \
 				mylib/libft/ft_strrchr.c \
 				mylib/libft/ft_strstr.c \
-				mylib/libft/ft_strtrim.c \
-				mylib/libft/ft_substr.c \
-				mylib/libft/ft_tolower.c \
-				mylib/libft/ft_toupper.c \
 
 OBJ 		= $(FILES:%.c=%.o)
 

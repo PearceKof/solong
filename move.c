@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:01:24 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/15 15:30:09 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:26:26 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ void	mvleft(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		mlx_destroy_image(d->mlx, d->img);
 		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
-	mlx_destroy_image(d->mlx, d->img);
 	ft_putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
 }
 
@@ -55,10 +53,8 @@ void	mvup(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		mlx_destroy_image(d->mlx, d->img);
 		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
-	mlx_destroy_image(d->mlx, d->img);
 	if (d->dir == 1)
 		ft_putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
 	else
@@ -73,10 +69,8 @@ void	mvdown(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		mlx_destroy_image(d->mlx, d->img);
 		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
-	mlx_destroy_image(d->mlx, d->img);
 	if (d->dir == 1)
 		ft_putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
 	else
@@ -92,9 +86,7 @@ void	mvright(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		mlx_destroy_image(d->mlx, d->img);
 		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
-	mlx_destroy_image(d->mlx, d->img);
 	ft_putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
 }
