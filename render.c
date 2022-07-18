@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:38:54 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/18 15:58:12 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:02:59 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	mvimg(t_data *d)
 
 void	ft_putmapimg(t_data *d, t_pst p)
 {
-			if (d->map[p.y][p.x] == '1')
-				ft_putimg(d, "./sprites/wall.xpm", p.x * 32, p.y * 32);
-			else if (d->map[p.y][p.x] == '0')
-				ft_putimg(d, "./sprites/floor.xpm", p.x * 32, p.y * 32);
-			else if (d->map[p.y][p.x] == 'C')
-				ft_putimg(d, "./sprites/button1.xpm", p.x * 32, p.y * 32);
-			else if (d->map[p.y][p.x] == 'E')
-				ft_putimg(d, "./sprites/exit.xpm", p.x * 32, p.y * 32);
+	if (d->map[p.y][p.x] == '1')
+		ft_putimg(d, "./sprites/wall.xpm", p.x * 32, p.y * 32);
+	else if (d->map[p.y][p.x] == '0')
+		ft_putimg(d, "./sprites/floor.xpm", p.x * 32, p.y * 32);
+	else if (d->map[p.y][p.x] == 'C')
+		ft_putimg(d, "./sprites/button1.xpm", p.x * 32, p.y * 32);
+	else if (d->map[p.y][p.x] == 'E')
+		ft_putimg(d, "./sprites/exit.xpm", p.x * 32, p.y * 32);
 }
 
 void	ft_initmap(t_data *d)
