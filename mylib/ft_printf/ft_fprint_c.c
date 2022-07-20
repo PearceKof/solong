@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_fprint_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 16:10:55 by blaurent          #+#    #+#             */
-/*   Updated: 2022/01/18 16:10:55 by blaurent         ###   ########.fr       */
+/*   Created: 2022/07/04 14:15:23 by blaurent          #+#    #+#             */
+/*   Updated: 2022/07/04 14:15:23 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_fprint_c(va_list param, int *size, int std)
 {
-	t_list	*new;
+	int	intvalue;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	intvalue = (int)va_arg(param, int);
+	*size += write(std, &intvalue, 1);
 }

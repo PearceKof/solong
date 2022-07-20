@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-int	ft_putaddr(unsigned long long nbr)
+int	ft_putaddr(unsigned long long nbr, int fd)
 {
 	char	*printnb;
 	size_t	size;
@@ -20,11 +20,11 @@ int	ft_putaddr(unsigned long long nbr)
 	size = 0;
 	printnb = "0123456789abcdef";
 	if (nbr <= 15)
-		size += write(1, &printnb[nbr], 1);
+		size += write(fd, &printnb[nbr], 1);
 	else if (nbr > 15)
 	{
-		size += ft_putaddr(nbr / 16);
-		size += ft_putaddr(nbr % 16);
+		size += ft_putaddr(nbr / 16, fd);
+		size += ft_putaddr(nbr % 16, fd);
 	}
 	return (size);
 }

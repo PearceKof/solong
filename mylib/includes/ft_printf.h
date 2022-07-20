@@ -16,12 +16,12 @@
 # include "libft.h"
 # include <stdarg.h>
 
-int		ft_printf(const char *str, ...);
-void	ft_print_c(va_list param, int *size);
-void	ft_print_di(va_list param, int *size);
-void	ft_print_p(va_list param, int *size);
-void	ft_print_s(va_list param, int *size);
-void	ft_print_u(va_list param, int *size);
-void	ft_print_x(va_list param, int *size, char *base);
+int		ft_fprintf(int std, const char *str, ...);
+void	ft_fprint_c(va_list param, int *size, int std);
+void	ft_fprint_di(va_list param, int *size, int std);
+void	ft_fprint_p(va_list param, int *size, int std);
+void	ft_fprint_s(va_list param, int *size, int std);
+void	ft_fprint_u(va_list param, int *size, int std);
+void	ft_fprint_x(va_list param, int *size, char *base, int std);
 
 #endif

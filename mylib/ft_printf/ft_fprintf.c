@@ -12,30 +12,30 @@
 
 #include "../includes/ft_printf.h"
 
-static int	ft_check_format(va_list param, const char format, int *size)
+static int	ft_check_format(va_list param, const char format, int *s, int std)
 {
 	if (format == 'c')
-		ft_print_c(param, size);
+		ft_fprint_c(param, s, std);
 	else if (format == 's')
-		ft_print_s(param, size);
+		ft_fprint_s(param, s, std);
 	else if (format == 'p')
-		ft_print_p(param, size);
+		ft_fprint_p(param, s, std);
 	else if (format == 'd' || format == 'i')
-		ft_print_di(param, size);
+		ft_fprint_di(param, s, std);
 	else if (format == 'u')
-		ft_print_u(param, size);
+		ft_fprint_u(param, s, std);
 	else if (format == 'x')
-		ft_print_x(param, size, "0123456789abcdef");
+		ft_fprint_x(param, s, "0123456789abcdef", std);
 	else if (format == 'X')
-		ft_print_x(param, size, "0123456789ABCDEF");
+		ft_fprint_x(param, s, "0123456789ABCDEF", std);
 	else if (format == '%')
-		*size += write(1, "%", 1);
+		*s += write(std, "%", 1);
 	else
 		return (0);
 	return (1);
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_fprintf(int std, const char *format, ...)
 {
 	int		size;
 	int		i;
@@ -49,11 +49,11 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (!(ft_check_format(param, format[i], &size)))
+			if (!(ft_check_format(param, format[i], &size, std)))
 				break ;
 		}
 		else
-			size += write(1, &format[i], 1);
+			size += write(std, &format[i], 1);
 	}
 	va_end(param);
 	return (size);

@@ -16,7 +16,7 @@
 # include "libft.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 100
 # endif
 
 # ifndef OPEN_MAX
@@ -24,9 +24,6 @@
 # endif
 
 char	*gnl(int fd);
-char	*cooler_gnl(int fd);
-char	*ft_cpyline(char *file);
-char	*ft_nxtline(char *file);
 char	*ft_readfile(char *file, int fd);
 char	*ft_joinfile(char *s1, char *s2);
 

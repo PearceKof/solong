@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_fprint_di.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 18:19:22 by blaurent          #+#    #+#             */
-/*   Updated: 2022/01/11 18:19:22 by blaurent         ###   ########.fr       */
+/*   Created: 2022/07/04 14:15:39 by blaurent          #+#    #+#             */
+/*   Updated: 2022/07/04 14:15:39 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_fprint_di(va_list param, int *size, int std)
 {
-	size_t	i;
-	size_t	len;
+	int	intvalue;
 
-	i = 0;
-	len = ft_strlen(src);
-	if (size == 0)
-		return (len);
-	while (src[i] != '\0' && i < (size - 1))
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (len);
+	intvalue = (int)va_arg(param, int);
+	*size += ft_putnbr_base(intvalue, 10, "0123456789", std);
 }

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 14:11:26 by blaurent          #+#    #+#             */
-/*   Updated: 2022/01/07 14:11:26 by blaurent         ###   ########.fr       */
+/*   Created: 2022/02/11 11:54:04 by blaurent          #+#    #+#             */
+/*   Updated: 2022/02/11 12:26:58 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-int	ft_toupper(int c)
+void	ft_fprint_x(va_list param, int *size, char *base, int std)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
+	unsigned int	uintvalue;
+
+	uintvalue = (unsigned int)va_arg(param, unsigned int);
+	*size += ft_putnbr_base(uintvalue, 16, base, std);
 }

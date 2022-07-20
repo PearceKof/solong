@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:29:13 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/18 15:49:01 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:23:26 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <string.h>
+# include "mylib/includes/ft_printf.h"
 # include "mylib/includes/libft.h"
 # include "mylib/includes/gnl.h"
-# include "mylib/includes/ft_printf.h"
 
 typedef struct s_pst
 {
@@ -43,22 +43,25 @@ typedef struct s_data
 	int		p;
 }			t_data;
 
-void	ft_initmap(t_data *d);
-char	**ft_getmap(char *fmap, t_data *d);
-void	ft_elem(char c, t_data *d);
-int		ft_checkmap(char **map, t_data *d);
+void	quit(t_data *d, char *err);
+void	initd(t_data *d);
+int		keypress(int k, t_data *d);
 
-int		ft_movepos(int k, t_data *d);
+char	**getmap(char *fmap, t_data *d);
+int		checkmap(char **map, t_data *d);
+void	elem(char c, t_data *d);
+int		badmap(char **map, t_pst pos, t_data *d);
+
+int		movepos(int k, t_data *d);
 void	mvleft(t_data *d);
 void	mvup(t_data *d);
 void	mvdown(t_data *d);
 void	mvright(t_data *d);
-
 void	mvimg(t_data *d);
-void	ft_quit(t_data *d, char *err);
-void	ft_initd(t_data *d);
-void	ft_rndframe(t_data *d);
-void	ft_putimg(t_data *d, char *spr, int x, int y);
-int		ft_keypress(int k, t_data *d);
+
+void	initmap(t_data *d);
+void	rndframe(t_data *d);
+void	putimg(t_data *d, char *spr, int x, int y);
+void	putmapimg(t_data *d, t_pst p);
 
 #endif

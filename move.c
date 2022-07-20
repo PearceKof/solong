@@ -6,16 +6,16 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:01:24 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/18 16:26:26 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:06:40 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_movepos(int k, t_data *d)
+int	movepos(int k, t_data *d)
 {
 	if (k == 53)
-		ft_quit(d, NULL);
+		quit(d, NULL);
 	if (k == 0 && d->map[d->pos.y / 32][(d->pos.x / 32) - 1] != '1')
 		mvleft(d);
 	else if (k == 1 && d->map[(d->pos.y / 32) + 1][d->pos.x / 32] != '1')
@@ -27,7 +27,7 @@ int	ft_movepos(int k, t_data *d)
 	else
 		return (1);
 	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'E' && d->c == 0)
-		ft_quit(d, NULL);
+		quit(d, NULL);
 	return (0);
 }
 
@@ -40,9 +40,9 @@ void	mvleft(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
-	ft_putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
+	putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
 }
 
 void	mvup(t_data *d)
@@ -53,12 +53,12 @@ void	mvup(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
 	if (d->dir == 1)
-		ft_putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
 	else
-		ft_putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
 }
 
 void	mvdown(t_data *d)
@@ -69,12 +69,12 @@ void	mvdown(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
 	if (d->dir == 1)
-		ft_putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
 	else
-		ft_putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
 }
 
 void	mvright(t_data *d)
@@ -86,7 +86,7 @@ void	mvright(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		ft_putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
 	}
-	ft_putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
+	putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
 }

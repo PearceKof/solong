@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_fprint_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blaurent <blaurent@s19.be>                 +#+  +:+       +#+        */
+/*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 12:20:31 by blaurent          #+#    #+#             */
-/*   Updated: 2022/01/04 12:20:31 by blaurent         ###   ########.fr       */
+/*   Created: 2022/07/04 14:19:11 by blaurent          #+#    #+#             */
+/*   Updated: 2022/07/04 14:19:11 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-int	ft_isalnum(int c)
+void	ft_fprint_u(va_list param, int *size, int std)
 {
-	if ((c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z')
-		|| (c >= '0' && c <= '9'))
-		return (1);
-	return (0);
+	unsigned int	uintvalue;
+
+	uintvalue = (unsigned int)va_arg(param, unsigned int);
+	*size += ft_putnbr_base(uintvalue, 10, "0123456789", std);
 }
