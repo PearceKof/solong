@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:29:13 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/20 14:41:55 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:10:26 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,9 @@ void	mvleft(t_data *d);
 void	mvup(t_data *d);
 void	mvdown(t_data *d);
 void	mvright(t_data *d);
-void	mvimg(t_data *d);
 
 void	initmap(t_data *d);
-void	rndframe(t_data *d);
-void	putimg(t_data *d, int spr, int x, int y);
 void	putmapimg(t_data *d, t_pst p);
+void	replaceimg(t_data *d);
 
 #endif

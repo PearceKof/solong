@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:01:24 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/20 14:53:34 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:11:48 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	movepos(int k, t_data *d)
 
 void	mvleft(t_data *d)
 {
-	mvimg(d);
+	replaceimg(d);
 	d->pos.x -= 32;
 	d->dir = 1;
 	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'C')
@@ -47,7 +47,7 @@ void	mvleft(t_data *d)
 
 void	mvup(t_data *d)
 {
-	mvimg(d);
+	replaceimg(d);
 	d->pos.y -= 32;
 	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'C')
 	{
@@ -63,7 +63,7 @@ void	mvup(t_data *d)
 
 void	mvdown(t_data *d)
 {
-	mvimg(d);
+	replaceimg(d);
 	d->pos.y += 32;
 	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'C')
 	{
@@ -79,7 +79,7 @@ void	mvdown(t_data *d)
 
 void	mvright(t_data *d)
 {
-	mvimg(d);
+	replaceimg(d);
 	d->pos.x += 32;
 	d->dir = 0;
 	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'C')
