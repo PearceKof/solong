@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:29:13 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/20 13:23:26 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:41:55 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_data
 	char	**map;
 	void	*mlx;
 	void	*win;
-	void	*img;
+	void	*img[7];
 	t_pst	size;
 	t_pst	pos;
 	int		dir;
@@ -43,8 +43,20 @@ typedef struct s_data
 	int		p;
 }			t_data;
 
+enum
+{
+	B1,
+	B2,
+	E,
+	F,
+	P1,
+	P2,
+	W
+};
+
 void	quit(t_data *d, char *err);
 void	initd(t_data *d);
+void	initimg(t_data *d);
 int		keypress(int k, t_data *d);
 
 char	**getmap(char *fmap, t_data *d);
@@ -61,7 +73,7 @@ void	mvimg(t_data *d);
 
 void	initmap(t_data *d);
 void	rndframe(t_data *d);
-void	putimg(t_data *d, char *spr, int x, int y);
+void	putimg(t_data *d, int spr, int x, int y);
 void	putmapimg(t_data *d, t_pst p);
 
 #endif

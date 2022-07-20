@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:38:54 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/20 13:05:55 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:43:00 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,32 @@ void	initmap(t_data *d)
 		p.x = 0;
 		p.y++;
 	}
-	putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
-	mlx_put_image_to_window(d->mlx, d->win, d->img, p.x * 32, p.y * 32);
+	mlx_put_image_to_window(d->mlx, d->win, d->img[P1], d->pos.x, d->pos.y);
 }
 
-void	putimg(t_data *d, char *spr, int x, int y)
+void	putimg(t_data *d, int spr, int x, int y)
 {
-	int		img_width;
-	int		img_height;
-
-	d->img = mlx_xpm_file_to_image(d->mlx, spr, &img_width, &img_height);
-	mlx_put_image_to_window(d->mlx, d->win, d->img, x, y);
+	mlx_put_image_to_window(d->mlx, d->win, d->img[spr], x, y);
 }
 
 void	mvimg(t_data *d)
 {
 	if (d->map[d->pos.y / 32][(d->pos.x / 32)] == '0')
-		putimg(d, "./sprites/floor.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[F], d->pos.x, d->pos.y);
 	else if (d->map[d->pos.y / 32][(d->pos.x / 32)] == 'X')
-		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[B2], d->pos.x, d->pos.y);
 	else if (d->map[d->pos.y / 32][(d->pos.x / 32)] == 'E')
-		putimg(d, "./sprites/exit.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[E], d->pos.x, d->pos.y);
 }
 
 void	putmapimg(t_data *d, t_pst p)
 {
 	if (d->map[p.y][p.x] == '1')
-		putimg(d, "./sprites/wall.xpm", p.x * 32, p.y * 32);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[W], p.x * 32, p.y * 32);
 	else if (d->map[p.y][p.x] == '0')
-		putimg(d, "./sprites/floor.xpm", p.x * 32, p.y * 32);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[F], p.x * 32, p.y * 32);
 	else if (d->map[p.y][p.x] == 'C')
-		putimg(d, "./sprites/button1.xpm", p.x * 32, p.y * 32);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[B1], p.x * 32, p.y * 32);
 	else if (d->map[p.y][p.x] == 'E')
-		putimg(d, "./sprites/exit.xpm", p.x * 32, p.y * 32);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[E], p.x * 32, p.y * 32);
 }

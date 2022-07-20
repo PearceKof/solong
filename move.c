@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:01:24 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/20 13:06:40 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:53:34 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	mvleft(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[B2], d->pos.x, d->pos.y);
 	}
-	putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
+	mlx_put_image_to_window(d->mlx, d->win, d->img[P1], d->pos.x, d->pos.y);
 }
 
 void	mvup(t_data *d)
@@ -53,12 +53,12 @@ void	mvup(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[B2], d->pos.x, d->pos.y);
 	}
 	if (d->dir == 1)
-		putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[P1], d->pos.x, d->pos.y);
 	else
-		putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[P2], d->pos.x, d->pos.y);
 }
 
 void	mvdown(t_data *d)
@@ -69,12 +69,12 @@ void	mvdown(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[B2], d->pos.x, d->pos.y);
 	}
 	if (d->dir == 1)
-		putimg(d, "./sprites/p1.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[P1], d->pos.x, d->pos.y);
 	else
-		putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[P2], d->pos.x, d->pos.y);
 }
 
 void	mvright(t_data *d)
@@ -86,7 +86,7 @@ void	mvright(t_data *d)
 	{
 		d->c--;
 		d->map[d->pos.y / 32][d->pos.x / 32] = 'X';
-		putimg(d, "./sprites/button2.xpm", d->pos.x, d->pos.y);
+		mlx_put_image_to_window(d->mlx, d->win, d->img[B2], d->pos.x, d->pos.y);
 	}
-	putimg(d, "./sprites/p2.xpm", d->pos.x, d->pos.y);
+	mlx_put_image_to_window(d->mlx, d->win, d->img[P2], d->pos.x, d->pos.y);
 }
