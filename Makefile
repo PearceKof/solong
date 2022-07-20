@@ -6,7 +6,7 @@
 #    By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 13:39:59 by blaurent          #+#    #+#              #
-#    Updated: 2022/07/20 13:41:23 by blaurent         ###   ########.fr        #
+#    Updated: 2022/07/20 13:48:10 by blaurent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,19 +27,18 @@ FILES		= map.c \
 				mylib/ft_printf/ft_fprint_u.c \
 				mylib/ft_printf/ft_fprint_x.c \
 				mylib/ft_printf/ft_fprint_di.c \
-				mylib/libft/gnl.c \
 				mylib/libft/ft_bzero.c \
 				mylib/libft/ft_calloc.c \
 				mylib/libft/ft_freetab.c \
 				mylib/libft/ft_putaddr.c \
 				mylib/libft/ft_putchar_fd.c \
-				mylib/libft/ft_putendl_fd.c \
 				mylib/libft/ft_putnbr_base.c \
 				mylib/libft/ft_putnbr_fd.c \
 				mylib/libft/ft_putstr_fd.c \
 				mylib/libft/ft_split.c \
 				mylib/libft/ft_strjoin.c \
 				mylib/libft/ft_strlen.c \
+				mylib/libft/gnl.c \
 
 OBJ 		= $(FILES:%.c=%.o)
 
