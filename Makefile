@@ -6,7 +6,7 @@
 #    By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 13:39:59 by blaurent          #+#    #+#              #
-#    Updated: 2022/07/20 13:48:10 by blaurent         ###   ########.fr        #
+#    Updated: 2022/08/04 14:36:47 by blaurent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,11 +45,11 @@ OBJ 		= $(FILES:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJ)
+	gcc $(MLXFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.c
 	gcc $(FLAGS) -c $< -o $@
-	
+
 clean:
 	rm -f $(OBJ)
 

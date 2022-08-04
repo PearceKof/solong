@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 17:35:20 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/20 13:48:35 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:35:38 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,34 @@
 
 char	**getmap(char *fmap, t_data *d)
 {
-	char	**tmap;
-	char	*map;
+	char	**map;
+	char	*tmap;
 	int		fd;
 
 	fd = open(fmap, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	map = gnl(fd);
+	tmap = gnl(fd);
 	close(fd);
-	if (!map)
+	if (!tmap)
 		return (NULL);
-	tmap = ft_split(map, '\n');
-	free(map);
-	if (checkmap(tmap, d))
+	map = ft_split(tmap, '\n');
+	free(tmap);
+	if (checkmap(map, d))
 	{
-		if (tmap)
-			free(tmap);
+		if (map)
+			ft_freetab(map);
 		return (NULL);
 	}
-	return (tmap);
+	return (map);
 }
 
 int	checkmap(char **map, t_data *d)
 {
 	t_pst	pos;
 
+	pos.x = 0;
+	pos.y = 0;
 	if (!map)
 		return (-1);
 	while (map[0][d->size.x])

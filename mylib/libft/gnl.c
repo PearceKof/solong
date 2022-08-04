@@ -30,10 +30,12 @@ char	*ft_readfile(char *file, int fd)
 	int		end;
 
 	end = 1;
-	tmp = malloc(BUFFER_SIZE * sizeof(char));
+	tmp = malloc(3001 * sizeof(char));
+	if (!tmp)
+		return (NULL);
 	while (end != 0)
 	{
-		end = read(fd, tmp, BUFFER_SIZE);
+		end = read(fd, tmp, 3000);
 		if (end == -1)
 		{
 			free(tmp);

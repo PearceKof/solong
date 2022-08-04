@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:28:29 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/20 15:18:27 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:01:51 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	main(int ag, char **av)
 {
 	t_data	d;
 
-	if (ag != 2 || !av[1])
-		quit(NULL, "Invalid argument\n");
+	if (ag != 2)
+		quit(NULL, "Invalid argument");
 	initd(&d);
 	d.map = getmap(av[1], &d);
 	if (!d.map)
-		quit(NULL, "Invalid map\n");
+		quit(NULL, "Invalid map");
 	d.size.x *= 32;
 	d.size.y *= 32;
 	d.mlx = mlx_init();
@@ -39,6 +39,7 @@ int	main(int ag, char **av)
 	initmap(&d);
 	mlx_key_hook(d.win, keypress, &d);
 	mlx_loop(d.mlx);
+	return (0);
 }
 
 void	quit(t_data *d, char *err)
@@ -56,10 +57,8 @@ void	quit(t_data *d, char *err)
 	if (err)
 	{
 		ft_fprintf(STDERR_FILENO, "ERROR\n%s\n", err);
-		system("leaks --fullContent so_long");
 		exit(EXIT_FAILURE);
 	}
-	system("leaks --fullContent so_long");
 	exit(EXIT_SUCCESS);
 }
 
@@ -92,7 +91,7 @@ int	keypress(int k, t_data *d)
 	static int	count = 1;
 
 	if (movepos(k, d))
-		return (0);
+		return (1);
 	ft_fprintf(STDIN_FILENO, "%d\n", count++);
 	return (0);
 }
