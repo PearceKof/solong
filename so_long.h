@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:29:13 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/26 15:56:21 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/10 16:35:00 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,14 @@ enum
 };
 
 void	quit(t_data *d, char *err);
-void	initd(t_data *d);
-void	initimg(t_data *d);
-int		keypress(int k, t_data *d);
 
-char	**getmap(char *fmap, t_data *d);
-int		checkmap(char **map, t_data *d);
-void	elem(char c, t_data *d);
-int		badmap(char **map, t_pst pos, t_data *d);
+char	**get_map(char *fmap, t_data *d);
 
-int		movepos(int k, t_data *d);
-void	mvleft(t_data *d);
-void	mvup(t_data *d);
-void	mvdown(t_data *d);
-void	mvright(t_data *d);
+int		have_path(t_data *d);
 
-void	initmap(t_data *d);
-void	putmapimg(t_data *d, t_pst p);
-void	replaceimg(t_data *d);
+int		move_pos(int k, t_data *d);
+
+void	init_map(t_data *d);
+void	replace_img(t_data *d);
 
 #endif

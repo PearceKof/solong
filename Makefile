@@ -6,7 +6,7 @@
 #    By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 13:39:59 by blaurent          #+#    #+#              #
-#    Updated: 2022/08/04 14:36:47 by blaurent         ###   ########.fr        #
+#    Updated: 2022/08/10 13:45:44 by blaurent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,13 @@ NAME		= so_long
 
 FLAGS		= -Wall -Wextra -Werror
 
-MLXFLAGS	= -Imlx -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS	= -lmlx -framework OpenGL -framework AppKit
 
 FILES		= map.c \
-				so_long.c \
-				render.c \
 				move.c \
+				path.c \
+				render.c \
+				so_long.c \
 				mylib/ft_printf/ft_fprintf.c \
 				mylib/ft_printf/ft_fprint_c.c \
 				mylib/ft_printf/ft_fprint_p.c \
@@ -36,6 +37,7 @@ FILES		= map.c \
 				mylib/libft/ft_putnbr_fd.c \
 				mylib/libft/ft_putstr_fd.c \
 				mylib/libft/ft_split.c \
+				mylib/libft/ft_strdup.c \
 				mylib/libft/ft_strjoin.c \
 				mylib/libft/ft_strlen.c \
 				mylib/libft/gnl.c \
@@ -48,7 +50,7 @@ $(NAME): $(OBJ)
 	gcc $(MLXFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.c
-	gcc $(FLAGS) -c $< -o $@
+	gcc $(FLAGS) -Imlx -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

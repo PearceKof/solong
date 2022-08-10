@@ -6,41 +6,11 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:28:29 by blaurent          #+#    #+#             */
-/*   Updated: 2022/07/26 16:01:51 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/10 16:35:45 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-/*
-0 b1
-1 b2
-2 exit
-3 floor 
-4 p1
-5 p2
-6 wall
-7 null
-*/
-int	main(int ag, char **av)
-{
-	t_data	d;
-
-	if (ag != 2)
-		quit(NULL, "Invalid argument");
-	initd(&d);
-	d.map = getmap(av[1], &d);
-	if (!d.map)
-		quit(NULL, "Invalid map");
-	d.size.x *= 32;
-	d.size.y *= 32;
-	d.mlx = mlx_init();
-	d.win = mlx_new_window(d.mlx, d.size.x, d.size.y, "so_long");
-	initimg(&d);
-	initmap(&d);
-	mlx_key_hook(d.win, keypress, &d);
-	mlx_loop(d.mlx);
-	return (0);
-}
 
 void	quit(t_data *d, char *err)
 {
@@ -62,7 +32,7 @@ void	quit(t_data *d, char *err)
 	exit(EXIT_SUCCESS);
 }
 
-void	initd(t_data *d)
+static void	init_d(t_data *d)
 {
 	d->dir = 0;
 	d->e = 0;
@@ -72,7 +42,7 @@ void	initd(t_data *d)
 	d->size.y = 0;
 }
 
-void	initimg(t_data *d)
+static void	init_img(t_data *d)
 {
 	int	w;
 	int	h;
@@ -86,12 +56,34 @@ void	initimg(t_data *d)
 	d->img[6] = mlx_xpm_file_to_image(d->mlx, "sprites/wall.xpm", &w, &h);
 }
 
-int	keypress(int k, t_data *d)
+static int	keypress(int k, t_data *d)
 {
 	static int	count = 1;
 
-	if (movepos(k, d))
+	if (move_pos(k, d))
 		return (1);
 	ft_fprintf(STDIN_FILENO, "%d\n", count++);
 	return (0);
+}
+
+int	main(int ag, char **av)
+{
+	t_data	d;
+
+	if (ag != 2)
+		quit(NULL, "Invalid argument");
+	init_d(&d);
+	d.map = get_map(av[1], &d);
+	if (!d.map)
+		quit(NULL, "Invalid map");
+	if (!have_path(&d))
+		quit(NULL, "No path to the exit");
+	d.size.x *= 32;
+	d.size.y *= 32;
+	d.mlx = mlx_init();
+	d.win = mlx_new_window(d.mlx, d.size.x, d.size.y, "so_long");
+	init_img(&d);
+	init_map(&d);
+	mlx_key_hook(d.win, keypress, &d);
+	mlx_loop(d.mlx);
 }
