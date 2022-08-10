@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:28:29 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/10 16:35:45 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:02:26 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ static int	keypress(int k, t_data *d)
 	if (move_pos(k, d))
 		return (1);
 	ft_fprintf(STDIN_FILENO, "%d\n", count++);
+	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'E' && d->c == 0)
+		quit(d, NULL);
 	return (0);
 }
 

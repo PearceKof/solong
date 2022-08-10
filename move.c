@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:01:24 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/10 16:32:02 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:03:32 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,5 @@ int	move_pos(int k, t_data *d)
 		mvup(d);
 	else
 		return (1);
-	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'E' && d->c == 0)
-		quit(d, NULL);
 	return (0);
 }
