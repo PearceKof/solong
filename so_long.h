@@ -6,22 +6,18 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:29:13 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/11 13:37:50 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:43:00 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h>
 # include "mylib/includes/ft_printf.h"
 # include "mylib/includes/libft.h"
 # include "mylib/includes/gnl.h"
+# include <fcntl.h>
+# include <mlx.h>
 
 typedef struct s_pst
 {
