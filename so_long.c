@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:28:29 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/10 17:02:26 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:38:01 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	main(int ag, char **av)
 	d.mlx = mlx_init();
 	d.win = mlx_new_window(d.mlx, d.size.x, d.size.y, "so_long");
 	init_img(&d);
-	init_map(&d);
+	render_map(&d);
 	mlx_key_hook(d.win, keypress, &d);
 	mlx_loop(d.mlx);
 }

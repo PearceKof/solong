@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:38:54 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/10 16:31:42 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:37:32 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	put_map_img(t_data *d, t_pst p)
 		mlx_put_image_to_window(d->mlx, d->win, d->img[E], p.x * 32, p.y * 32);
 }
 
-void	init_map(t_data *d)
+void	render_map(t_data *d)
 {
 	t_pst	p;
 
