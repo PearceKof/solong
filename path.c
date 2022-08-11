@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 13:00:37 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/10 16:08:16 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:01:09 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	have_path(t_data *d)
 	if (!searching_map)
 	{
 		ft_freetab(d->map);
-		quit(NULL, "Failed to duplicate map");
+		error(NULL, "Failed to duplicate map");
 	}
 	ret = path_finding(searching_map);
 	ft_freetab (searching_map);

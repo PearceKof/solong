@@ -6,7 +6,7 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:01:24 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/10 17:03:32 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:00:09 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	mvright(t_data *d)
 int	move_pos(int k, t_data *d)
 {
 	if (k == 53)
-		quit(d, NULL);
+		quit(d);
 	if (k == 0 && d->map[d->pos.y / 32][(d->pos.x / 32) - 1] != '1')
 		mvleft(d);
 	else if (k == 1 && d->map[(d->pos.y / 32) + 1][d->pos.x / 32] != '1')

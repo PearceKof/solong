@@ -6,13 +6,13 @@
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:28:29 by blaurent          #+#    #+#             */
-/*   Updated: 2022/08/11 13:38:01 by blaurent         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:00:32 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	quit(t_data *d, char *err)
+int	quit(t_data *d)
 {
 	int	i;
 
@@ -23,11 +23,6 @@ void	quit(t_data *d, char *err)
 			mlx_destroy_image(d->mlx, d->img[i++]);
 		mlx_destroy_window(d->mlx, d->win);
 		ft_freetab(d->map);
-	}
-	if (err)
-	{
-		ft_fprintf(STDERR_FILENO, "ERROR\n%s\n", err);
-		exit(EXIT_FAILURE);
 	}
 	exit(EXIT_SUCCESS);
 }
@@ -64,8 +59,24 @@ static int	keypress(int k, t_data *d)
 		return (1);
 	ft_fprintf(STDIN_FILENO, "%d\n", count++);
 	if (d->map[d->pos.y / 32][d->pos.x / 32] == 'E' && d->c == 0)
-		quit(d, NULL);
+		quit(d);
 	return (0);
+}
+
+void	error(t_data *d, char *err)
+{
+	int	i;
+
+	if (d)
+	{
+		i = 0;
+		while (i < 7)
+			mlx_destroy_image(d->mlx, d->img[i++]);
+		mlx_destroy_window(d->mlx, d->win);
+		ft_freetab(d->map);
+	}
+	ft_fprintf(STDERR_FILENO, "ERROR\n%s\n", err);
+	exit(EXIT_FAILURE);
 }
 
 int	main(int ag, char **av)
@@ -73,13 +84,13 @@ int	main(int ag, char **av)
 	t_data	d;
 
 	if (ag != 2)
-		quit(NULL, "Invalid argument");
+		error(NULL, "Invalid argument");
 	init_d(&d);
 	d.map = get_map(av[1], &d);
 	if (!d.map)
-		quit(NULL, "Invalid map");
+		error(NULL, "Invalid map");
 	if (!have_path(&d))
-		quit(NULL, "No path to the exit");
+		error(NULL, "No path to the exit");
 	d.size.x *= 32;
 	d.size.y *= 32;
 	d.mlx = mlx_init();
@@ -87,5 +98,6 @@ int	main(int ag, char **av)
 	init_img(&d);
 	render_map(&d);
 	mlx_key_hook(d.win, keypress, &d);
+	mlx_hook(d.win, 17, 0L, quit, &d);
 	mlx_loop(d.mlx);
 }
