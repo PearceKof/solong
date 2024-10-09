@@ -43,7 +43,7 @@ Once MinilibX is installed, you just have to follow these instructions:
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/so_long.git
+git clone https://github.com/PearceKof/solong.git
 ```
 2. Go in the cloned repository
 ```
