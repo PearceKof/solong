@@ -64,13 +64,16 @@ make
 
 After building the project, you can start it by running:
 ```
-./so_long map.ber
+./so_long [path to the map file]
+```
+```
+./so_long map/map.ber
 ```
 This will open the game window with the specified map.
 
-## Game Mechanics
+## Features
 
-- The player’s goal is to collect every collectible present on the map, then escape through the exit.
+- The player’s goal is to press every buttons present on the map, then escape through the exit.
 - Use the W, A, S, and D keys to move the character.
 - The character cannot move into walls.
 - The number of movements is displayed in the shell.
@@ -88,7 +91,7 @@ This will open the game window with the specified map.
 - Valid characters are: 
   - `0` for an empty space
   - `1` for a wall
-  - `C` for a collectible
+  - `C` for a button
   - `E` for the exit
   - `P` for the player's starting position
 
@@ -102,7 +105,7 @@ This will open the game window with the specified map.
 ```
 
 
-- The map must contain at least 1 exit, 1 collectible, and 1 starting position.
+- The map must contain at least 1 exit, 1 button, and 1 starting position.
 - Maps must be rectangular and enclosed by walls.
 - The program must check for a valid path from the starting position to the exit.
 - If any issues are detected in the map file, the program will exit cleanly and return an error message.
