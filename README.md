@@ -37,17 +37,20 @@ The So_long project aims to enhance our skills in computer graphics, window mana
 
 ## Installation
 
-To build and run So_long, you need a C compiler and `make`. This program is compatible with Unix-like systems.
+To build and run So_long, you need a C compiler and `make`. This program uses minilibx and you need to install it to build and run So_long. [Here is how you do that]([#install-minilibx](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html))
 
 1. Clone the repository:
-
+```
 git clone https://github.com/yourusername/so_long.git
+```
+2. Go in the cloned repository
+```
 cd so_long
-
+```
 3. Build the project:
-
+```
 make
-
+```
 4. The Makefile includes the following targets:
 - `NAME`: Compiles the project
 - `all`: Compiles the project
@@ -58,9 +61,9 @@ make
 ## Usage
 
 After building the project, you can start it by running:
-
+```
 ./so_long map.ber
-
+```
 This will open the game window with the specified map.
 
 ## Game Mechanics
@@ -88,4 +91,17 @@ This will open the game window with the specified map.
   - `P` for the player's starting position
 
 ### Example Map
+```
+1111111111111
+10010000000C1
+1000011111001
+1P0011E000001
+1111111111111
+```
+
+
+- The map must contain at least 1 exit, 1 collectible, and 1 starting position.
+- Maps must be rectangular and enclosed by walls.
+- The program must check for a valid path from the starting position to the exit.
+- If any issues are detected in the map file, the program will exit cleanly and return an error message.
 
