@@ -37,7 +37,7 @@ The So_long project aims to enhance our skills in computer graphics, window mana
 
 ## Installation
 
-To build and run So_long, you need a C compiler and `make`. This program uses minilibx and you need to install it to build and run So_long. [Here is how you do that]([#install-minilibx](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html))
+To build and run So_long, you need a C compiler and `make`. This program uses minilibx and you need to install it to build and run So_long. [Here is how you do that](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html)
 
 1. Clone the repository:
 ```
