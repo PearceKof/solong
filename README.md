@@ -45,7 +45,7 @@ Once MinilibX is installed, you just have to follow these instructions:
 ```
 git clone https://github.com/PearceKof/solong.git
 ```
-2. Go in the cloned repository
+2. Go in the cloned repository:
 ```
 cd so_long
 ```
